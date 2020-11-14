@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+app_name = 'knup'
 urlpatterns = [
     path('', views.index),
+    path('file/', views.file_index),
+    path('file/<int:userid>/', views.file_test)
 ]
