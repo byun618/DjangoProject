@@ -1,0 +1,15 @@
+{% extends 'knup/index.html' %}
+
+{% block content %}
+    <h2>The image has been uploaded!!</h2>
+
+    {% for d in data %}
+        <form action="{% url 'knup:file_preview' %}" method="post" target="_blank">
+        {% csrf_token %}
+            <input type="hidden" name="file" value="{{ d.storedname }}">
+            <button type="submit">{{ d.originalname }}</button>
+        </form>
+        <br>
+    {% endfor %}
+
+{% endblock %}
