@@ -13,3 +13,6 @@ class File(models.Model):
     class Meta:
         ordering = ['storeddate']
         verbose_name = 'file'
+
+class FileUpload(models.Model):
+    pic = models.FileField(null=True, blank=True, upload_to="")

@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 app_name = 'knup'
 urlpatterns = [
     path('', views.index),
-    path('file/', views.file_index),
-    path('file/<int:userid>/', views.file_test)
+    path('upload/', views.upload_image, name='upload_image'),
+    path('list/', views.image_list, name='image_list'),
+    # path('file/', views.file_index),
+    # path('file/<int:userid>/', views.file_test)
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
