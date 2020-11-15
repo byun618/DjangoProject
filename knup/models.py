@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class File(models.Model):
     originalname = models.CharField(max_length=100)
-    storedname = models.CharField(max_length=50)
+    storedname = models.FileField(null=True, blank=True, upload_to="", max_length=200)
     userid = models.IntegerField()
     storeddate = models.DateField(auto_now_add=True)
 
@@ -13,6 +13,3 @@ class File(models.Model):
     class Meta:
         ordering = ['storeddate']
         verbose_name = 'file'
-
-class FileUpload(models.Model):
-    pic = models.FileField(null=True, blank=True, upload_to="")

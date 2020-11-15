@@ -22,9 +22,8 @@ from django.conf import settings
 app_name = 'knup'
 urlpatterns = [
     path('', views.index),
-    path('upload/', views.upload_image, name='upload_image'),
-    path('list/', views.image_list, name='image_list'),
-    # path('file/', views.file_index),
-    # path('file/<int:userid>/', views.file_test)
+    path('upload/', views.file_upload, name='file_upload'),
+    path('list/', views.file_list, name='file_list'),
+    path('preview/', views.file_preview, name='file_preview')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

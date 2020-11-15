@@ -1,7 +1,11 @@
 from django import forms
-from .models import FileUpload
+from .models import File
+from django.forms import ClearableFileInput
 
 class UploadForm(forms.ModelForm):
     class Meta:
-        model = FileUpload
-        fields = {'pic'}
+        model = File
+        fields = {'storedname'}
+        widgets = {
+            'storedname': ClearableFileInput(attrs={'multiple': True}),
+        }
